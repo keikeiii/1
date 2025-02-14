@@ -1,0 +1,43 @@
+### 获取角色列表
+
+# 待定：
+@auth_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJyb2xlIjoi5pmu6YCa55So5oi3IiwicGVybWlzc2lvbnMiOltdLCJpYXQiOjE3MzY2NTc3NjQsImV4cCI6MTczNjc0NDE2NH0.o9emw_RsxoVauAQHu2VsjVJV654tER3A5D6BOvqzkJ0
+GET http://localhost:3000/api/system/role/list
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+    "roleName": "",
+    "status": null,
+    "pageNum": 1,
+    "pageSize": 10
+}
+
+### 创建新角色
+POST http://localhost:3000/api/system/role/create
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+    "roleName": "测试角色",
+    "roleKey": "test",
+    "status": 1,
+    "permissions": ["system:user:list", "system:user:add"]
+}
+
+### 更新角色信息
+PUT http://localhost:3000/api/system/role/update
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+    "id": 1,
+    "roleName": "测试角色",
+    "roleKey": "test",
+    "status": 1,
+    "permissions": ["system:user:list", "system:user:add"]
+}
+
+### 删除角色
+DELETE http://localhost:3000/api/system/role/delete/1
+Authorization: Bearer {{auth_token}} 

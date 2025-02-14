@@ -1,0 +1,47 @@
+### 获取用户列表
+
+# 待定：
+@auth_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInVzZXJuYW1lIjoidGVzdHVzZXIiLCJyb2xlIjoi5pmu6YCa55So5oi3IiwicGVybWlzc2lvbnMiOltdLCJpYXQiOjE3MzY2NTc3NjQsImV4cCI6MTczNjc0NDE2NH0.o9emw_RsxoVauAQHu2VsjVJV654tER3A5D6BOvqzkJ0
+
+POST http://localhost:3000/api/system/user/list
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+    "username": "",
+    "phone": "",
+    "status": null,
+    "pageNum": 1,
+    "pageSize": 10
+}
+
+### 创建新用户
+POST http://localhost:3000/api/system/user/create
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "123456",
+    "realName": "测试用户",
+    "phone": "13800138000",
+    "email": "test@example.com"
+}
+
+### 更新用户信息
+PUT http://localhost:3000/api/system/user/update
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+    "id": 1,
+    "username": "testuser",
+    "realName": "测试用户",
+    "phone": "13800138000",
+    "email": "test@example.com",
+    "status": 1
+}
+
+### 删除用户
+DELETE http://localhost:3000/api/system/user/delete/1
+Authorization: Bearer {{auth_token}} 

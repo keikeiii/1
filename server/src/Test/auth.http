@@ -1,0 +1,41 @@
+### 用户登录测试
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "123456"
+}
+
+### 普通用户注册测试
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "123456",
+    "realName": "测试用户",
+    "phone": "13800138000",
+    "email": "test@example.com"
+}
+
+### 管理员用户注册测试
+POST http://localhost:3000/api/auth/register-admin
+Content-Type: application/json
+
+{
+    "username": "my-admin",
+    "password": "123456",
+    "realName": "系统管理员",
+    "phone": "13900139000",
+    "email": "admin@example.com",
+    "secretKey": "your_admin_secret_key_here"
+}
+
+### 测试受保护的路由 (需要先登录获取token)
+GET http://localhost:3000/api/protected
+Authorization: Bearer {{auth_token}}
+
+### 变量设置
+@baseUrl = http://localhost:3000
+@auth_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsInVzZXJuYW1lIjoibXktYWRtaW4iLCJyb2xlIjoi566h55CG5ZGYIiwicGVybWlzc2lvbnMiOlsiMCIsIjEiLCIxMSIsIjEyIiwiMTMiLCIyIiwiMjEiLCIyMiIsIjIzIiwiMjQiLCIzIiwiMzEiLCIzMiIsIjMzIiwiMzMxIiwiMzMyIiwiNCIsIjQxIiwiNDIiLCI1IiwiOCIsIjkiLCI5MSIsIjEwIl0sImlhdCI6MTczNjcxODAxMiwiZXhwIjoxNzM2ODA0NDEyfQ.RLCBWr32EAX-w4XOKSVgNkIefL6m9yz46feiZFrXs08
